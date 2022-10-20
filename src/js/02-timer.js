@@ -34,11 +34,18 @@ btnStart.addEventListener('click', btnStartClick);
 function btnStartClick() {
     const startTime = dataPickr.selectedDates[0];
 
-    setInterval(() => {
+    const intervalId = setInterval(() => {
         const currentTime = Date.now();
         const deltaTime = startTime - currentTime;
         const time = convertMs(deltaTime);
 
+        console.log('deltaTime', deltaTime);
+
+        if (deltaTime < 0) {
+            clearInterval(intervalId);
+            return;
+            
+        }
         days.textContent = time.days;
         hours.textContent = time.hours;
         minutes.textContent = time.minutes;
