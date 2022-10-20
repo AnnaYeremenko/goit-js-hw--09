@@ -32,7 +32,7 @@ function onClick(event) {
   for (let i = 0; i < amount; i += 1) {
     createPromise(i + 1, delay + step * i)
       .then(({ position, delay }) => {
-        Notiflix.Notify.failure(`✅ Fulfilled promise ${position} in ${delay}ms`);
+        Notiflix.Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`);
       })
       .catch(({ position, delay }) => {
         Notiflix.Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`);
